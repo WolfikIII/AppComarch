@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Long> {
 
-    List<Product> getProductByNameLike (String name);
+    Optional<Product> getProductByName(String name);
 
     Optional<Product> getProductById(Long productId);
 }

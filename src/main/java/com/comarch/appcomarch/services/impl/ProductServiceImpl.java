@@ -33,17 +33,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProductsByName(String name) {
-       List<Product> productList = productRepo.getProductByNameLike(name);
-       if(productList == null || productList.size() == 0)
-       {
-           throw new RuntimeException("Products not found");
-       }
-       return productRepo.getProductByNameLike(name);
+    public Product getProductByName(String name) {
+       return productRepo.getProductByName(name).orElseThrow(()-> new RuntimeException("Product not found"));
     }
 
     @Override
     public Product getProductById(Long productId) {
-        return productRepo.getProductById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+        return productRepo.getProductById(productId).orElseThrow(()-> new RuntimeException("Product not found"));
     }
 }

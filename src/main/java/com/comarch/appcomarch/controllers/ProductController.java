@@ -30,8 +30,8 @@ public class ProductController {
     }
 
     @GetMapping("/getByName")
-    public List<Product> getProductByName(@RequestParam String name) {
-        return productService.getProductsByName(name);
+    public Product getProductByName(@RequestParam String name) {
+        return productService.getProductByName(name);
     }
 
     @GetMapping("/getById")
